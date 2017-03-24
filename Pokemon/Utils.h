@@ -27,5 +27,6 @@
 +(int) lerIntWithMsg:(char *)msg;
 +(NSMutableArray<Pokemon *>*) ordenaPokemon:(NSMutableArray<Pokemon*>*)pokemons;
 +(void) subMenuGinasios:(NSMutableArray *)ginasios Jogador:(Jogador *)jogador;
++(void)lerInteiro:(int*)numero;
 
 @end

@@ -20,5 +20,6 @@
 -(void) capturarPokemon:(Pokemon *) pokemon;
 -(void) listarPokemons;
 -(void) batalharSelvagem: (Pokemon *) selvagem;
+-(void)descartaPokemon:(NSInteger)indice pokemons:(NSMutableArray*)pokemons;
 
 @end

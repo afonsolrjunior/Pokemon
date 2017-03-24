@@ -36,8 +36,23 @@
 
 //Método para capturar um pokemon
 -(void) capturarPokemon:(Pokemon *) pokemon {
+     char opcao;
+    
+    if([self.pokemons count]>=5){
+        [Utils lerCharWithOpcao:&opcao Mensagem: "Ops!! você já tem 5 pokémons.\nDeseja descartar algum? (S/N)" Opcoes:"SN"];
+        if(opcao=='S'){
+            int indice = 0;
+            printf("Informe o número do pokémon que deseja descartar");
+            [self listarPokemons];
+            [Utils lerInteiro:&indice];
+            [self descartaPokemon:indice pokemons:[self pokemons]];
+        }else{
+            return;
+        }
+    }
+    
     if ([self.pokemons count] < 5) {
-        char opcao;
+       
         printf("A wild %s lvl %lu appears!!!", [pokemon.nome UTF8String], pokemon.nivel);
         [Utils lerCharWithOpcao:&opcao Mensagem: "Deseja captura-lo? (S/N)" Opcoes:"SN"];
         if (opcao == 'S') {
@@ -56,13 +71,15 @@
 
 //Método para listar os pokemons do jogador
 -(void) listarPokemons {
+    int i = 0;
     if ([_pokemons count] == 0)
         printf("Voce nao possui pokemons!!!");
     else {
         //[Utils ordenarWithArray:_pokemons];
         for (Pokemon* pokemon in _pokemons) {
-            printf("Pokemon = %s - lvl %lu", [pokemon.nome UTF8String], pokemon.nivel);
-        }  
+            printf("\n%d - Pokemon = %s - lvl %lu",++i, [pokemon.nome UTF8String], pokemon.nivel);
+        }
+        printf("\n");
     }
     
 }
@@ -78,5 +95,15 @@
             printf("Voce perdeu!!!");
     }
 }
+
+
+-(void)descartaPokemon:(NSInteger)indice pokemons:(NSMutableArray*)pokemons{
+    [pokemons removeObjectAtIndex:indice];
+}
+
+
+
+
+
 
 @end

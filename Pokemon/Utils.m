@@ -225,6 +225,12 @@ typedef enum{
     return pokemonVencedor;
 }
 
+//Método para ler inteiro
++(void)lerInteiro:(int*)numero{
+    scanf("%d",&(*numero));
+    
+}
+
 //Método para ler e validar um char
 +(void) lerCharWithOpcao:(char *)opcao Mensagem:(char *)mensagem Opcoes:(char *)opcoes {
     Boolean flag;
