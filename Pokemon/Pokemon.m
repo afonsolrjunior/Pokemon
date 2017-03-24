@@ -22,12 +22,15 @@
     self = [super init];
     
     if (self){
-        
         [self setNome:nome];
         [self setNivel:nivel];
         [self setExp:0];
         [self setTipo:tipo];
+        
+        
+        
     }
+    
     
     return self;
 }

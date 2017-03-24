@@ -18,6 +18,7 @@
 @property (assign, nonatomic) NSInteger  exp;
 
 -(id) initWithNome: (NSString *)nome Nivel: (NSInteger )nivel Tipo: (NSString *)tipo;
+
 -(Boolean) subirdeNivel;
 
 @end
